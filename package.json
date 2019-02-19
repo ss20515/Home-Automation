@@ -1,0 +1,22 @@
+{
+  "name": "home-autoamation",
+  "version": "1.0.0",
+  "description": "A web app for home automation project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RachitGupta008/Home-Autoamation.git"
+  },
+  "author": " <Ajay Singh>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RachitGupta008/Home-Autoamation/issues"
+  },
+  "homepage": "https://github.com/RachitGupta008/Home-Autoamation#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
