@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Home page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+     <h1 class="statusone"></h1>
+     <button class="buttonone">Relay One</button>
+
+     <h1 class="statustwo"></h1>
+     <button class="buttontwo">Relay Two</button>
+
+     <h1 class="statusthree"></h1>
+     <button class="buttonthree">Relay Three</button>
+
+     <h1 class="statusfour"></h1>
+     <button class="buttonfour">Relay Four</button>
+
+  <script>
+  firebase.initializeApp(config);
+
+
+  $(document).ready(function(){
+
+  	var database = firebase.database();
+  	var relayone;
+  	var relaytwo;
+  	var relaythree;
+  	var relayfour;
+
+  	database.ref().on("value", function(snap){
+  		relayone = snap.val().relayone;
+  		relaytwo = snap.val().relaytwo;
+  		relaythree = snap.val().relaythree;
+  		relayfour = snap.val().relayfour;
+  		if(relayone == 1){
+  			$(".statusone").text("Relay One is on.");
+  		} else {
+  			$(".statusone").text("Relay One is off.");
+  		}
+  		if(relaytwo == 1){
+  			$(".statustwo").text("Relay two is on.");
+  		} else {
+  			$(".statustwo").text("Relay two is off.");
+  		}
+  		if(relaythree == 1){
+  			$(".statusthree").text("Relay three is on.");
+  		} else {
+  			$(".statusthree").text("Relay three is off.");
+  		}
+  		if(relayfour == 1){
+  			$(".statusfour").text("Relay four is on.");
+  		} else {
+  			$(".statusfour").text("Relay four is off.");
+  		}
+  	});
+
+  	$(".buttonone").click(function(){
+  		var relayoneRef = firebase.database().ref().child("relayone");
+
+  		if(relayone == 1){
+  			relayoneRef.set(0);
+  			relayone = 0;
+  		}else {
+  			relayoneRef.set(1);
+  			relayone = 1;
+  		}
+  	});
+
+    $(".buttontwo").click(function(){
+  		var relaytwoRef = firebase.database().ref().child("relaytwo");
+
+  		if(relaytwo == 1){
+  			relaytwoRef.set(0);
+  			relaytwo = 0;
+  		}else {
+  			relaytwoRef.set(1);
+  			relaytwo = 1;
+  		}
+  	});
+
+  	$(".buttonthree").click(function(){
+  		var relaythreeRef = firebase.database().ref().child("relaythree");
+
+  		if(relaythree == 1){
+  			relaythreeRef.set(0);
+  			relaythree = 0;
+  		}else {
+  			relaythreeRef.set(1);
+  			relaythree = 1;
+  		}
+  	});
+
+  	$(".buttonfour").click(function(){
+  		var relayfourRef = firebase.database().ref().child("relayfour");
+
+  		if(relayfour == 1){
+  			relayfourRef.set(0);
+  			relayfour = 0;
+  		}else {
+  			relayfourRef.set(1);
+  			relayfour = 1;
+  		}
+  	});
+
+  });
+</script>
+
+</body>
+</html>
