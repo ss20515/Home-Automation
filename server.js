@@ -8,4 +8,5 @@ server.get('/', function(req, res, next){
 server.use('/public', express.static(__dirname + '/public'))
 
 
+
 server.listen(2121);
