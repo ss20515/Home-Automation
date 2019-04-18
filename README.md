@@ -10,7 +10,13 @@ The technologies which will be used in developing this application are as follow
 
 Express
 /*add more later*/
-
+## Interfaces to be added
+<ul>An interface for the led which have a toggle option for the mode that is  (automatic/appcontrol)
+The user will select one of them. And it will have:
+<b>Automatic mode:
+  On selecting automatic mode display if the light is on or off and if some one is in the room or not.
+  
+</ul>
 ## Author & Contributor list
 
 /*add respective names*/
