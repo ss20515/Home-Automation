@@ -38,7 +38,7 @@ Express
  
  Similar to that of the led's. Turn the AC on or off with a button using the **fan_cntrl ** variable
  
-  - [ ] Web app 
+ - [ ] Web app 
  - [ ] Android
  
   
