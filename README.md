@@ -27,8 +27,11 @@ Express
  
  **Automatic Mode:** 
  In this mode the AC will turn on automatically when the temprature rises above the mentioned threshold temperature.
+ 
  The mode is turned on by **fan_tempset** variable in firebase to 1.
+ 
  For this the AC can be controlled by **fan_cntrl** variable which is modifyable .
+ 
  The temp is set in the **fan_temp** variable.
   
 ## Firebase database reference
