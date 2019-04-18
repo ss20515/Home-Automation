@@ -25,7 +25,7 @@ Express
 - **led_r1:** This is used to display the status of led in room 1. Values used are 0 or 1.*(Read only)*
 - **led_r1cntrl:** This is used to control the led in room 1. *(Read and write)*
 - **pir_r1:** This is used to display whether there is some one in room 1 or not. *(Read)*
-
+- **led_r1mode:** Used to select mode. 0 for automatic. 1 for app control. *(Read and write)*
 
 ## Author & Contributor list
 
