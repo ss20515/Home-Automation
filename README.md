@@ -15,6 +15,10 @@ Express
  The user will select one of them. And it will have:
   <b>Automatic mode: </b>
   On selecting automatic mode display if the light is on or off and if some one is in the room or not.
+  <b>appcontrol mode: </b>
+  On selecting app control this mode will display a button to control the led and it will show the person status inside the room.
+  
+  Web app[] Android[]
   
 </ul>
 
