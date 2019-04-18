@@ -20,9 +20,12 @@ Express
   
  - [ ] Web app 
  - [ ] Android
+ 
  - A second interface to display temprature and humidity
+ 
  - [ ] Web app 
  - [ ] Android
+ 
  - An Interface for the AC in which there are two modes **Automatic** and **AppControl**
  
  **Automatic Mode:** 
@@ -36,7 +39,7 @@ Express
  
  **AppControl Mode**
  
- Similar to that of the led's. Turn the AC on or off with a button using the **fan_cntrl ** variable
+ Similar to that of the led's. Turn the AC on or off with a button using the **fan_cntrl** variable
  
  - [ ] Web app 
  - [ ] Android
