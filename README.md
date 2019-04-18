@@ -18,7 +18,8 @@ Express
   <b> Appcontrol mode: </b>
   On selecting app control this mode will display a button to control the led and it will show the person status inside the room.
   
- - [] Web app - []Android
+ - [ ] Web app 
+ - [ ]Android
   
 </ul>
 
