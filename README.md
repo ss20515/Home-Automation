@@ -17,6 +17,7 @@ The user will select one of them. And it will have:
   On selecting automatic mode display if the light is on or off and if some one is in the room or not.
   
 </ul>
+
 ## Author & Contributor list
 
 /*add respective names*/
