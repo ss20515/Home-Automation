@@ -33,6 +33,14 @@ Express
  For this the AC can be controlled by **fan_cntrl** variable which is modifyable .
  
  The temp is set in the **fan_temp** variable.
+ 
+ **AppControl Mode**
+ 
+ Similar to that of the led's. Turn the AC on or off with a button using the **fan_cntrl ** variable
+ 
+  - [ ] Web app 
+ - [ ] Android
+ 
   
 ## Firebase database reference
 - **led_r1:** This is used to display the status of led in room 1. Values used are 0 or 1.*(Read only)*
