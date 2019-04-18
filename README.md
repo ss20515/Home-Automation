@@ -20,6 +20,15 @@ Express
   
  - [ ] Web app 
  - [ ] Android
+ - A second interface to display temprature and humidity
+ - [ ] Web app 
+ - [ ] Android
+ - An Interface for the AC in which there are two modes **Automatic** and **AppControl**
+ **Automatic Mode:** 
+ In this mode the AC will turn on automatically when the temprature rises above the mentioned threshold temperature.
+ The mode is turned on by **fan_tempset** variable in firebase to 1.
+ For this the AC can be controlled by **fan_cntrl** variable which is modifyable .
+ The temp is set in the **fan_temp** variable.
   
 ## Firebase database reference
 - **led_r1:** This is used to display the status of led in room 1. Values used are 0 or 1.*(Read only)*
