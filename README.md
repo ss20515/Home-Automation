@@ -24,6 +24,7 @@ Express
  - [ ] Web app 
  - [ ] Android
  - An Interface for the AC in which there are two modes **Automatic** and **AppControl**
+ 
  **Automatic Mode:** 
  In this mode the AC will turn on automatically when the temprature rises above the mentioned threshold temperature.
  The mode is turned on by **fan_tempset** variable in firebase to 1.
