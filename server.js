@@ -5,7 +5,7 @@ server.get('/', function(req, res, next){
 	res.send('Home Page')
 })
 
-server.use('/public', express.static(__dirname + '/public'))
+server.use('/public', express.static(__dirname + '/public/'))
 
 
 

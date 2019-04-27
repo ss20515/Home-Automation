@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Home page</title>
+     <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+	<!--<script src="script.js"></script>-->
+  <script src="firebase.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+
+
+<div id="wrapper">
+
+<!-- Navbar Top-->
+        <div class="navbar navbar-inverse navbar-dark bg-dark navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/img/ha.jpeg" width="40px" height="40px">
+                        
+
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+<!-- /Navabar Top-->
+
+
+
+
+
+
+<!-- Navbar Side-->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                 
+
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
+                    </li>
+
+                     <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-bell-o "></i>Notifications </a>
+                    </li>
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-circle-o-notch "></i>Check Data </a>
+                    </li>
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-gear "></i>Settings </a>
+                    </li>
+
+                    
+                    <li class="active-link">
+                        <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
+                    </li>
+
+                   
+
+                                     
+                    
+                </ul>
+              </div>
+
+        </nav>
+<!-- /Navbar Side-->
+
+
+<!-- Main Content Area-->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                     <h2>Bedroom 1</h2>   
+                    </div>
+                </div>   
+
+
+
+
+     <div class="buttonbox">
+     <h1 class="Mode"></h1>
+  
+     <button type="button" class="buttonone btn btn-primary btn-lg">Mode</button>
+     </div>
+
+
+     <div class="buttonbox">
+     <h1 class="Lock"></h1>
+    
+     <button type="button" class="buttontwo btn btn-primary btn-lg">Lock</button>
+     </div>
+
+
+     <div class="buttonbox">
+     <h1 class="Bulb"></h1>
+    
+     <button type="button" class="buttonthree btn btn-primary btn-lg">Bulb</button>         
+     </div>
+
+
+
+
+ <script>
+  var firebase = app_fireBase;
+
+  $(document).ready(function(){
+    var database = firebase.database();
+    var mode;
+    var lock;
+    var bulb;
+    
+    database.ref().on("value", function(snap){
+      mode = snap.val().led_r1mode;
+      lock = snap.val().intrusion_set;
+      bulb = snap.val().led_r1cntrl;
+      relayfour = snap.val().relayfour;
+      if(mode == 1){
+        $(".Mode").text("App mode.");
+      } else {
+        $(".Mode").text("Automatic mode.");
+      }
+      if(lock == 1){
+        $(".Lock").text("Intrusion Detection enabled.");
+      } else {
+        $(".Lock").text("Intrusion Detection disabled.");
+      }
+      if(bulb == 1){
+        $(".Bulb").text("Bulb is on.");
+      } else {
+        $(".Bulb").text("Bulb is off.");
+      }
+    });
+
+    $(".buttonone").click(function(){
+      var led_r1modeRef = firebase.database().ref().child("led_r1mode");
+      if(mode == 1){
+        led_r1modeRef.set(0);
+        mode = 0;
+      }else {
+        led_r1modeRef.set(1);
+        mode = 1;
+      }
+    });
+    $(".buttontwo").click(function(){
+      var intrusion_setRef = firebase.database().ref().child("intrusion_set");
+      if(lock == 1){
+        intrusion_setRef.set(0);
+        lock = 0;
+      }else{
+        intrusion_setRef.set(1);
+        lock = 1;
+      }
+    })
+     $(".buttonthree").click(function(){
+      var led_r1cntrlRef = firebase.database().ref().child("led_r1cntrl");
+      if(bulb == 1){
+        led_r1cntrlRef.set(0);
+        bulb = 0;
+      }else{
+        led_r1cntrlRef.set(1);
+        bulb = 1;
+      }
+    })
+
+  });
+</script>
+
+   
+
+
+
+
+
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>

@@ -3,4 +3,5 @@
 
 #script with api
 
-script.js
+firebase.js
+firebase-messaging-sw.js
