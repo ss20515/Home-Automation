@@ -2,113 +2,374 @@
 <html>
 <head>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Home page</title>
+     <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <link rel="manifest" href="manifest.json">
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>  
+
 	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
-	<script src="script.js"></script>
+
+  <!--<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>-->  
+	<!--<script src="script.js"></script>-->
+  
+   <script src="firebase.js"></script>
+  <script src="index.js"></script>
+
 </head>
 <body>
-     <h1 class="statusone"></h1>
-     <button class="buttonone">Relay One</button>
 
-     <h1 class="statustwo"></h1>
-     <button class="buttontwo">Relay Two</button>
 
-     <h1 class="statusthree"></h1>
-     <button class="buttonthree">Relay Three</button>
+<div id="wrapper">
 
-     <h1 class="statusfour"></h1>
-     <button class="buttonfour">Relay Four</button>
+<!-- Navbar Top-->
+        <div class="navbar navbar-inverse navbar-dark bg-dark navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/img/ha.jpeg" width="40px" height="40px">
+                        
+
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+<!-- /Navabar Top-->
+
+
+
+<!-- Navbar Side-->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+              
+                <ul class="nav" id="main-menu">
+                 
+                   <li class="userinfo">
+                        <h3 ></h3>
+                    </li>
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
+                    </li>
+
+                     <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-bell-o "></i>Notifications </a>
+                    </li>
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-circle-o-notch "></i>Check Data </a>
+                    </li>
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-gear "></i>Settings </a>
+                    </li>
+
+                    
+                    <li class="active-link">
+                        <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
+                    </li>
+
+                   
+
+                                     
+                    
+                </ul>
+              </div>
+
+        </nav>
+<!-- /Navbar Side-->
+
+
+<!-- Main Content Area-->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                     <h2>HOME DASHBOARD</h2>   
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                  <hr />
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <div class="alert alert-info">
+                             <strong>Welcome User! </strong> Your home is secure.
+                        </div>
+                       
+                    </div>
+                    </div>
+                  <!-- /. ROW  --> 
+
+
+<!-- Row -->
+
+    <div class="row text-center pad-top">
+     <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="roombox">
+      <h3 class="temp">Temperature:</h3>
+      <h3 class="humidity">Humidty:</h3>
+      </a>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <div class="row text-center pad-top">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="roombox">
+      <a href="bedroom1.html">
+      <img src="assets/img/bedroom3.jpg" alt="bedroom1" width="200px" height="150px" style="margin-top:20px; border:2px solid #000" class="img-fluid">
+      <h3>Bedroom 1</h3>
+      </a>
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="roombox">
+      <a href="bedroom2.html">
+      <img src="assets/img/bedroom.jpg" alt="bedroom2" width="200px" height="150px" style="margin-top:20px; border:2px solid #000" class="img-fluid">
+      <h3>Bedroom 2</h3>
+      </a>
+    </div>
+    </div>
+   </div> 
+   <div class="row text-center pad-top">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="roombox">
+      <a href="kitchen.html">
+     <img src="assets/img/kitchen3.jpg" alt="kitchen" width="200px" height="150px" style="margin-top:20px; border:2px solid #000" class="img-fluid">
+     <h3>Kitchen</h3>
+      </a>
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="roombox">
+      <a href="">
+      <img src="assets/img/livingroom3.jpg" alt="livingroom" width="200px" height="150px" style="margin-top:20px; border:2px solid #000" class="img-fluid">
+      <h3>Livingroom</h3>
+      </a>
+    </div>
+    </div>
+    </div>
+    <div class="row text-center pad-top">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="roombox">
+      <a href="garage.html">
+     <img src="assets/img/garage3.jpg" alt="garage" width="200px" height="150px" style="margin-top:20px; border:2px solid #000" class="img-fluid">
+     <h3>Garage</h3>
+      </a>
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="roombox">
+      <a href="">
+     <img src="" alt="" width="200px" height="200px" style="margin-top:20px border:2px solid #000" class="img-fluid">
+     <h3>New Room</h3>
+      </a>
+    </div>
+    </div>
+  </div>
+  
+
+ 
+
+
+
+
+
+<!-- Row -->
+
+
+
+
+                         
+
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+       
+<!-- /Main Content Area-->
+
+ </div>
+
+
+
+<!-- Footer-->
+    <div class="footer">
+      
+    
+            <div class="row">
+                <div class="col-lg-12" >
+                    &copy;  2019 Homeautomation| Design by: Our team
+                </div>
+            </div>
+        </div>
+<!-- /Footer-->
+
+
+
+
+    
+
+    
+
+   
 
   <script>
-  firebase.initializeApp(config);
+  var firebase = app_fireBase;
+
+  // Retrieve Firebase Messaging object.
+const messaging = firebase.messaging();
+
+
+  // Add the public key generated from the console here.
+messaging.usePublicVapidKey("BNEnqm5xJMYxOHAHtPzKOBjmFTUjLlT4VKUDIJuPBjg7RZKi9a7RqdpAw-OD2Sg8gyq6d4t7qQtACA2HlmdtWXY");
+  
+  navigator.serviceWorker.register('./firebase-messaging-sw.js')
+    .then((registration) => {
+      messaging.useServiceWorker(registration);
+
+  // Request permission and get token.....
+  }); 
+
+
+messaging.requestPermission().then(function() {
+  console.log('Notification permission granted.');
+
+  getRegisterToken();
+  // TODO(developer): Retrieve an Instance ID token for use with FCM.
+  // ...
+}).catch(function(err) {
+  console.log('Unable to get permission to notify.', err);
+});
+
+
+function getRegisterToken(){
+  // Get Instance ID token. Initially this makes a network call, once retrieved
+// subsequent calls to getToken will return from cache.
+messaging.getToken().then(function(currentToken) {
+
+  if (currentToken) {
+    console.log(currentToken);
+    sendTokenToServer(currentToken);
+    //updateUIForPushEnabled(currentToken);
+  } else {
+    // Show permission request.
+    console.log('No Instance ID token available. Request permission to generate one.');
+    // Show permission UI.
+   // updateUIForPushPermissionRequired();
+    setTokenSentToServer(false);
+  }
+}).catch(function(err) {
+  console.log('An error occurred while retrieving token. ', err);
+ // showToken('Error retrieving Instance ID token. ', err);
+  setTokenSentToServer(false);
+});
+}
+
+
+
+/*
+    navigator.serviceWorker.register('./firebase-messaging-sw.js')
+    .then((registration) => {
+      messaging.useServiceWorker(registration);
+
+  // Request permission and get token.....
+  });
+  
+  messaging.requestPermission()
+  .then(function(){
+    console.log("you have permission");
+    return messaging.getToken();
+  })
+
+  .then(function(token){
+    console.log(token);
+    
+  })
+
+   messaging.onMessage(function(payload){
+    console.log(payload);
+  })
+   */
+
+
+
+  /*
+
+  function setTokenSentToServer(sent){
+    window.localStorage.setItem('sentToServer', sent ? '1' : '0');
+  }
+
+  function sendTokenToServer(currentToken){
+    if(!isTokenSentToServer()){
+      console.log('Sending token to server...');
+      setTokenSentToServer(true);
+    }else{
+      console.log('Token already sent to server');
+    }
+  }
+
+  function isTokenSentToServer() {
+    return window.localStorage.getItem('sentToServer') === '1';
+  }
+*/
+
+ 
+
 
 
   $(document).ready(function(){
-
-  	var database = firebase.database();
-  	var relayone;
-  	var relaytwo;
-  	var relaythree;
-  	var relayfour;
-
-  	database.ref().on("value", function(snap){
-  		relayone = snap.val().relayone;
-  		relaytwo = snap.val().relaytwo;
-  		relaythree = snap.val().relaythree;
-  		relayfour = snap.val().relayfour;
-  		if(relayone == 1){
-  			$(".statusone").text("Relay One is on.");
-  		} else {
-  			$(".statusone").text("Relay One is off.");
-  		}
-  		if(relaytwo == 1){
-  			$(".statustwo").text("Relay two is on.");
-  		} else {
-  			$(".statustwo").text("Relay two is off.");
-  		}
-  		if(relaythree == 1){
-  			$(".statusthree").text("Relay three is on.");
-  		} else {
-  			$(".statusthree").text("Relay three is off.");
-  		}
-  		if(relayfour == 1){
-  			$(".statusfour").text("Relay four is on.");
-  		} else {
-  			$(".statusfour").text("Relay four is off.");
-  		}
-  	});
-
-  	$(".buttonone").click(function(){
-  		var relayoneRef = firebase.database().ref().child("relayone");
-
-  		if(relayone == 1){
-  			relayoneRef.set(0);
-  			relayone = 0;
-  		}else {
-  			relayoneRef.set(1);
-  			relayone = 1;
-  		}
-  	});
-
-    $(".buttontwo").click(function(){
-  		var relaytwoRef = firebase.database().ref().child("relaytwo");
-
-  		if(relaytwo == 1){
-  			relaytwoRef.set(0);
-  			relaytwo = 0;
-  		}else {
-  			relaytwoRef.set(1);
-  			relaytwo = 1;
-  		}
-  	});
-
-  	$(".buttonthree").click(function(){
-  		var relaythreeRef = firebase.database().ref().child("relaythree");
-
-  		if(relaythree == 1){
-  			relaythreeRef.set(0);
-  			relaythree = 0;
-  		}else {
-  			relaythreeRef.set(1);
-  			relaythree = 1;
-  		}
-  	});
-
-  	$(".buttonfour").click(function(){
-  		var relayfourRef = firebase.database().ref().child("relayfour");
-
-  		if(relayfour == 1){
-  			relayfourRef.set(0);
-  			relayfour = 0;
-  		}else {
-  			relayfourRef.set(1);
-  			relayfour = 1;
-  		}
-  	});
+    var database = firebase.database();
+    var temp;
+    var humidity;
+    
+    database.ref().on("value", function(snap){
+      temp = snap.val().temp;
+      humidity = snap.val().humidity;
+      
+        $(".temp").text("Temperature: " + temp);
+      
+        $(".humidity").text("Humidty: " + humidity);
 
   });
+ 
+       
+
+});
+
 </script>
+
+
+
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
 
 </body>
 </html>
