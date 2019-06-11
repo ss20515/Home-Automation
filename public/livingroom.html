@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Home page</title>
+     <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+	<!--<script src="script.js"></script>-->
+  <script src="firebase.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+
+
+<div id="wrapper">
+
+<!-- Navbar Top-->
+        <div class="navbar navbar-inverse navbar-dark bg-dark navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/img/ha.jpeg" width="40px" height="40px">
+                        
+
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+<!-- /Navabar Top-->
+
+
+
+
+
+
+<!-- Navbar Side-->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                 
+
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
+                    </li>
+
+                     <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-bell-o "></i>Notifications </a>
+                    </li>
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-circle-o-notch "></i>Check Data </a>
+                    </li>
+
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-gear "></i>Settings </a>
+                    </li>
+
+                    
+                    <li class="active-link">
+                        <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
+                    </li>
+
+                   
+
+                                     
+                    
+                </ul>
+              </div>
+
+        </nav>
+<!-- /Navbar Side-->
+
+
+<!-- Main Content Area-->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                     <h2>Livingroom</h2>   
+                    </div>
+                </div> 
+
+
+
+     <div class="buttonbox">
+     <h1 class="Bulb"></h1>
+  
+     <button type="button" class="buttonone btn btn-primary btn-lg">Bulb</button>
+     </div>
+            
+
+<div class="buttonbox">
+<div class="rgbbox">
+
+     
+</div>
+  
+     
+</div>
+
+
+<div class="rgbselector">
+
+
+<div class="redbox"></div>
+<div class="greenbox"></div>
+<div class="bluebox"></div>
+<div class="raspberrybox"></div>
+<div class="cyanbox"></div>
+<div class="magentabox"></div>
+<div class="yellowbox"></div>
+<div class="whitebox"></div>
+
+
+
+
+<!--<button type="button" class="btn">Red</button>
+<button type="button" class="btn">Green</button>
+<button type="button" class="btn">Blue</button>
+<button type="button" class="btn">Raspberry</button>
+<button type="button" class="btn">Cyan</button>
+<button type="button" class="btn">Magenta</button>
+<button type="button" class="btn">Yellow</button>
+<button type="button" class="btn">White</button>-->
+
+</div>
+
+
+
+
+<script>
+
+  var firebase = app_fireBase;
+
+  $(document).ready(function(){
+    var database = firebase.database();
+    var r,g,b;
+    
+    database.ref().on("value", function(snap){
+      r = snap.val().r;
+      g = snap.val().g;
+      b = snap.val().b;
+
+      if((r==255)&&(g==0)&&(b==0)){
+        $(".rgbbox").css( "background-color", "red" );
+      } 
+      else if((r==0)&&(g==255)&&(b==0)){
+        $(".rgbbox").css( "background-color", "green" );
+      }
+      else if((r==0)&&(g==0)&&(b==255)){
+        $(".rgbbox").css( "background-color", "blue" );
+      }
+      else if((r==255)&&(g==255)&&(b==125)){
+        $(".rgbbox").css( "background-color", "#ffff7d" );
+      }
+      else if((r==0)&&(g==255)&&(b==255)){
+        $(".rgbbox").css( "background-color", "cyan" );
+      }
+      else if((r==255)&&(g==0)&&(b==255)){
+        $(".rgbbox").css( "background-color", "magenta" );
+      }
+      else if((r==255)&&(g==255)&&(b==0)){
+        $(".rgbbox").css( "background-color", "yellow" );
+      }
+      else if((r==255)&&(g==255)&&(b==255)){
+        $(".rgbbox").css( "background-color", "white" );
+      }
+    });
+
+    $(".redbox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      bRef.set(0);
+      gRef.set(0);
+      $(".rgbbox").css( "background-color", "red" );
+
+        });   
+
+     $(".greenbox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(0);
+      bRef.set(255);
+      gRef.set(0);
+      $(".rgbbox").css( "background-color", "green" );
+      
+        });   
+
+      $(".bluebox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(0);
+      bRef.set(0);
+      gRef.set(255);
+      $(".rgbbox").css( "background-color", "blue" );
+      
+        });   
+
+       $(".raspberrybox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      bRef.set(255);
+      gRef.set(125);
+      $(".rgbbox").css( "background-color", "#ffff7d" );
+      
+        });   
+
+        $(".cyanbox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(0);
+      bRef.set(255);
+      gRef.set(255);
+      $(".rgbbox").css( "background-color", "cyan" );
+      
+        });   
+
+         $(".magentabox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      bRef.set(0);
+      gRef.set(255);
+      $(".rgbbox").css( "background-color", "magenta" );
+      
+        });   
+
+          $(".yellowbox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      bRef.set(255);
+      gRef.set(0);
+      $(".rgbbox").css( "background-color", "yellow" );
+      
+        });   
+
+           $(".whitebox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      bRef.set(255);
+      gRef.set(255);
+      $(".rgbbox").css( "background-color", "white" );
+      
+        });  
+
+
+    var bulb;
+    
+    database.ref().on("value", function(snap){
+      bulb = snap.val().led_h;
+      if(bulb == 1){
+        $(".Bulb").text("Bulb is on.");
+      } else {
+        $(".Bulb").text("Bulb is off.");
+      }
+    });
+
+    $(".buttonone").click(function(){
+      var led_hRef = firebase.database().ref().child("led_h");
+      if(bulb == 1){
+        led_hRef.set(0);
+        bulb = 0;
+      }else {
+        led_hRef.set(1);
+        bulb = 1;
+      }
+    });
+
+
+
+  });
+
+
+</script>
+     
+
+
+
+
+
+
+     
+
+
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>
