@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.html">
                         <img src="assets/img/ha.jpeg" width="40px" height="40px">
                         
 
@@ -58,18 +58,18 @@
                         <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
                     </li>
 
-                     <li class="active-link">
+                     <!-- <li class="active-link">
                         <a href="index.html" ><i class="fa fa-bell-o "></i>Notifications </a>
-                    </li>
+                    </li> -->
 
                     <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-circle-o-notch "></i>Check Data </a>
+                        <a href="Analytics.html" ><i class="fa fa-circle-o-notch "></i>Analytics</a>
                     </li>
 
-                    <li class="active-link">
+                   <!--  <li class="active-link">
                         <a href="index.html" ><i class="fa fa-gear "></i>Settings </a>
                     </li>
-
+ -->
                     
                     <li class="active-link">
                         <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
@@ -150,11 +150,18 @@
   $(document).ready(function(){
     var database = firebase.database();
     var r,g,b;
+    var gar,h,k,r1,r2;
     
     database.ref().on("value", function(snap){
       r = snap.val().r;
       g = snap.val().g;
       b = snap.val().b;
+
+       gar = snap.val().led_g;
+      h = snap.val().led_h;
+      k = snap.val().led_k;
+      r1 = snap.val().led_r1cntrl;
+      r2 = snap.val().led_r2cntrl;
 
       if((r==255)&&(g==0)&&(b==0)){
         $(".rgbbox").css( "background-color", "red" );
@@ -287,9 +294,58 @@
       if(bulb == 1){
         led_hRef.set(0);
         bulb = 0;
+
+         var power = (gar*1 + h*0 + k*1 + r1*1 + r2*1);
+
+         var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var datetime = time;
+
+         // var ref = database.ref('timestamp');
+
+        var data = {
+
+          x: datetime,
+          y:  power,
+        }
+
+
+
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
+        xmlhttp.open("POST", theUrl);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(JSON.stringify(data));
+
+        // ref.push(data);
       }else {
         led_hRef.set(1);
         bulb = 1;
+
+         var power = (gar*1 + h*1 + k*1 + r1*1 + r2*1);
+
+         var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var datetime = time;
+
+         // var ref = database.ref('timestamp');
+
+        var data = {
+
+          x: datetime,
+          y:  power,
+        }
+
+
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
+        xmlhttp.open("POST", theUrl);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(JSON.stringify(data));
+
+        // ref.push(data);
       }
     });
 
