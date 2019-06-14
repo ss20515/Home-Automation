@@ -54,7 +54,6 @@
                  
 
 
-                   
                     <li class="active-link">
                         <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
                     </li>
@@ -75,6 +74,7 @@
                     <li class="active-link">
                         <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
                     </li>
+
                    
 
                                      
@@ -91,72 +91,197 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>Bedroom 2</h2>   
+                     <h2>Livingroom</h2>   
                     </div>
-                </div>   
+                </div> 
 
-
-
-
-     <div class="buttonbox">
-     <h1 class="Mode"></h1>
-  
-     <button type="button" class="buttonone btn btn-primary btn-lg">Mode</button>
-     </div>
-
-
-     <div class="buttonbox">
-     <h1 class="Lock"></h1>
-    
-     <button type="button" class="buttontwo btn btn-primary btn-lg">Lock</button>
-     </div>
 
 
      <div class="buttonbox">
      <h1 class="Bulb"></h1>
-    
-     <button type="button" class="buttonthree btn btn-primary btn-lg">Bulb</button>         
+  
+     <button type="button" class="buttonone btn btn-primary btn-lg">Bulb</button>
      </div>
+            
+
+<div class="buttonbox">
+<div class="rgbbox">
+
+     
+</div>
+  
+     
+</div>
+
+
+<div class="rgbselector">
+
+
+<div class="redbox"></div>
+<div class="greenbox"></div>
+<div class="bluebox"></div>
+<div class="raspberrybox"></div>
+<div class="cyanbox"></div>
+<div class="magentabox"></div>
+<div class="yellowbox"></div>
+<div class="whitebox"></div>
 
 
 
 
- <script>
+<!--<button type="button" class="btn">Red</button>
+<button type="button" class="btn">Green</button>
+<button type="button" class="btn">Blue</button>
+<button type="button" class="btn">Raspberry</button>
+<button type="button" class="btn">Cyan</button>
+<button type="button" class="btn">Magenta</button>
+<button type="button" class="btn">Yellow</button>
+<button type="button" class="btn">White</button>-->
+
+</div>
+
+
+
+
+<script>
+
   var firebase = app_fireBase;
 
   $(document).ready(function(){
     var database = firebase.database();
-    var mode;
-    var lock;
-    var bulb;
-    var g,h,k,r1,r2;
+    var r,g,b;
+    var gar,h,k,r1,r2;
     
     database.ref().on("value", function(snap){
-      mode = snap.val().led_r2mode;
-      lock = snap.val().intrusion_set;
-      bulb = snap.val().led_r2cntrl;
-      relayfour = snap.val().relayfour;
-       g = snap.val().led_g;
+      r = snap.val().r;
+      g = snap.val().g;
+      b = snap.val().b;
+
+       gar = snap.val().led_g;
       h = snap.val().led_h;
       k = snap.val().led_k;
       r1 = snap.val().led_r1cntrl;
       r2 = snap.val().led_r2cntrl;
 
-
-
-
-
-
-      if(mode == 1){
-        $(".Mode").text("App mode.");
-      } else {
-        $(".Mode").text("Automatic mode.");
+      if((r==255)&&(g==0)&&(b==0)){
+        $(".rgbbox").css( "background-color", "red" );
+      } 
+      else if((r==0)&&(g==255)&&(b==0)){
+        $(".rgbbox").css( "background-color", "green" );
       }
-      if(lock == 1){
-        $(".Lock").text("Intrusion Detection enabled.");
-      } else {
-        $(".Lock").text("Intrusion Detection disabled.");
+      else if((r==0)&&(g==0)&&(b==255)){
+        $(".rgbbox").css( "background-color", "blue" );
       }
+      else if((r==255)&&(g==255)&&(b==125)){
+        $(".rgbbox").css( "background-color", "#ffff7d" );
+      }
+      else if((r==0)&&(g==255)&&(b==255)){
+        $(".rgbbox").css( "background-color", "cyan" );
+      }
+      else if((r==255)&&(g==0)&&(b==255)){
+        $(".rgbbox").css( "background-color", "magenta" );
+      }
+      else if((r==255)&&(g==255)&&(b==0)){
+        $(".rgbbox").css( "background-color", "yellow" );
+      }
+      else if((r==255)&&(g==255)&&(b==255)){
+        $(".rgbbox").css( "background-color", "white" );
+      }
+    });
+
+    $(".redbox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      gRef.set(0);
+      bRef.set(0);
+      $(".rgbbox").css( "background-color", "red" );
+
+        });   
+
+     $(".greenbox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(0);
+      gRef.set(255);
+      bRef.set(0);
+      $(".rgbbox").css( "background-color", "green" );
+      
+        });   
+
+      $(".bluebox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(0);
+      gRef.set(0);
+      bRef.set(255);
+      $(".rgbbox").css( "background-color", "blue" );
+      
+        });   
+
+       $(".raspberrybox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      gRef.set(255);
+      bRef.set(125);
+      $(".rgbbox").css( "background-color", "#ffff7d" );
+      
+        });   
+
+        $(".cyanbox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(0);
+      gRef.set(255);
+      bRef.set(255);
+      $(".rgbbox").css( "background-color", "cyan" );
+      
+        });   
+
+         $(".magentabox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      gRef.set(0);
+      bRef.set(255);
+      $(".rgbbox").css( "background-color", "magenta" );
+      
+        });   
+
+          $(".yellowbox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      gRef.set(255);
+      bRef.set(0);
+      $(".rgbbox").css( "background-color", "yellow" );
+      
+        });   
+
+           $(".whitebox").click(function(){
+      var rRef = firebase.database().ref().child("r");
+      var gRef = firebase.database().ref().child("g");
+      var bRef = firebase.database().ref().child("b");
+      rRef.set(255);
+      gRef.set(255);
+      bRef.set(255);
+      $(".rgbbox").css( "background-color", "white" );
+      
+        });  
+
+
+    var bulb;
+    
+    database.ref().on("value", function(snap){
+      bulb = snap.val().led_h;
       if(bulb == 1){
         $(".Bulb").text("Bulb is on.");
       } else {
@@ -165,64 +290,18 @@
     });
 
     $(".buttonone").click(function(){
-      var led_r1modeRef = firebase.database().ref().child("led_r2mode");
-      if(mode == 1){
-        led_r1modeRef.set(0);
-        mode = 0;
-      }else {
-        led_r1modeRef.set(1);
-        mode = 1;
-      }
-    });
-    $(".buttontwo").click(function(){
-      var intrusion_setRef = firebase.database().ref().child("intrusion_set");
-      if(lock == 1){
-        intrusion_setRef.set(0);
-        lock = 0;
-      }else{
-        intrusion_setRef.set(1);
-        lock = 1;
-      }
-    })
-     $(".buttonthree").click(function(){
-      var led_r1cntrlRef = firebase.database().ref().child("led_r2cntrl");
+      var led_hRef = firebase.database().ref().child("led_h");
       if(bulb == 1){
-        led_r1cntrlRef.set(0);
+        led_hRef.set(0);
         bulb = 0;
 
-        var power = (g*1 + h*1 + k*1 + r1*1 + r2*0);
-
-        var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var datetime = time;
-
-
-        var data = {
-
-          x: datetime,
-          y:  power,
-        }
-
-        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
-        xmlhttp.open("POST", theUrl);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify(data));
-
-        // var ref = database.ref('timestamp');
-        // ref.push(data);
-
-      }else{
-        led_r1cntrlRef.set(1);
-        bulb = 1;
-
-         var power = (g*1 + h*1 + k*1 + r1*1 + r2*1);
+         var power = (gar*1 + h*0 + k*1 + r1*1 + r2*1);
 
          var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         var datetime = time;
+
          // var ref = database.ref('timestamp');
 
         var data = {
@@ -231,6 +310,35 @@
           y:  power,
         }
 
+
+
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
+        xmlhttp.open("POST", theUrl);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(JSON.stringify(data));
+
+        // ref.push(data);
+      }else {
+        led_hRef.set(1);
+        bulb = 1;
+
+         var power = (gar*1 + h*1 + k*1 + r1*1 + r2*1);
+
+         var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var datetime = time;
+
+         // var ref = database.ref('timestamp');
+
+        var data = {
+
+          x: datetime,
+          y:  power,
+        }
+
+
         var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
         var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
         xmlhttp.open("POST", theUrl);
@@ -239,10 +347,22 @@
 
         // ref.push(data);
       }
-    })
+    });
+
+
 
   });
+
+
 </script>
+     
+
+
+
+
+
+
+     
 
 
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
