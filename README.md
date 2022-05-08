@@ -72,3 +72,7 @@ The data for every sensor & component in the house is stored in JSON format in t
   "r": 255,
   "temp": 30
 }
+
+## System diagram
+![image](https://user-images.githubusercontent.com/21179880/167303645-b088e14c-3a25-4149-ac17-e48a9e3db3d0.png)
+
