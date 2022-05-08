@@ -76,3 +76,8 @@ The data for every sensor & component in the house is stored in JSON format in t
 ## System diagram
 ![image](https://user-images.githubusercontent.com/21179880/167303645-b088e14c-3a25-4149-ac17-e48a9e3db3d0.png)
 
+## Adding firebase to your javascript project
+
+Below link provides detials of connecting your javascript project to firebase & making use of the services offered by firebase. The api keys & configuration of firebase is mostly intialized in a firebase.js file.
+https://firebase.google.com/docs/web/setup?msclkid=cd73418bcee411ec874efb1951927f1a 
+
