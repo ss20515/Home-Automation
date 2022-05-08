@@ -39,3 +39,36 @@ Cloud technologies used
 3. FIrebase Realtime DB
 4. Firebase functions
 
+##Firebase realtime DB 
+
+The data for every sensor & component in the house is stored in JSON format in the NO SQL Realtime DB. This JSON data is being used by the Arduino and as well as our web application for reading & writing the chnages taking place in the system. Below is the format that is being used.
+
+{
+  "b": 255,
+  "fan": 1,
+  "fan_cntrl": 0,
+  "fan_temp": 22,
+  "fan_tempset": 1,
+  "fire_alarm": 0,
+  "g": 0,
+  "garage": 1,
+  "humidity": 41,
+  "intrusion_alarm": 0,
+  "intrusion_set": 0,
+  "led_g": 0,
+  "led_h": 1,
+  "led_k": 0,
+  "led_r1": 0,
+  "led_r1cntrl": 1,
+  "led_r1mode": 1,
+  "led_r2": 0,
+  "led_r2cntrl": 0,
+  "led_r2mode": 0,
+  "light": 283,
+  "lock": 0,
+  "pir_r1": 1,
+  "pir_r2": 1,
+  "pir_r2mode": 1,
+  "r": 255,
+  "temp": 30
+}
