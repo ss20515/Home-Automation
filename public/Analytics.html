@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Home page</title>
+     <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <link rel="manifest" href="manifest.json">
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>  
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+
+  <!--<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>-->  
+	<!--<script src="script.js"></script>-->
+  
+   <script src="firebase.js"></script>
+  <script src="index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+</head>
+<body>
+
+
+<div id="wrapper">
+
+<!-- Navbar Top-->
+        <div class="navbar navbar-inverse navbar-dark bg-dark navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/img/ha.jpeg" width="40px" height="40px">
+                        
+
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+<!-- /Navabar Top-->
+
+
+
+<!-- Navbar Side-->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+              
+                <ul class="nav" id="main-menu">
+                 
+                   <li class="userinfo">
+                        <h3 ></h3>
+                    </li>
+
+                   
+                    <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
+                    </li>
+
+                     <!-- <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-bell-o "></i>Notifications </a>
+                    </li> -->
+
+                    <li class="active-link">
+                        <a href="Analytics.html" ><i class="fa fa-circle-o-notch "></i>Analytics</a>
+                    </li>
+
+                   <!--  <li class="active-link">
+                        <a href="index.html" ><i class="fa fa-gear "></i>Settings </a>
+                    </li>
+ -->
+                    
+                    <li class="active-link">
+                        <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
+                    </li>                                    
+                    
+                </ul>
+              </div>
+
+        </nav>
+<!-- /Navbar Side-->
+
+
+<!-- Main Content Area-->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-lg-12">
+                     <h2>Reports</h2>   
+                    </div>
+                </div>              
+                 <!-- /. ROW  -->
+                  <hr />
+
+<!-- Row -->
+<canvas id="myChart" ></canvas>
+<!-- Row -->             
+
+                </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+       
+<!-- /Main Content Area-->
+
+ </div>
+
+
+
+<script>
+var firebase = app_fireBase;
+
+  $(document).ready(function(){
+    var database = firebase.database();
+    var temp;
+    var humidity;
+    
+    database.ref().on("value", function(snap){
+      temp = snap.val().temp;
+      humidity = snap.val().humidity;
+      
+        $(".temp").text("Temperature: " + temp);
+      
+        $(".humidity").text("Humidty: " + humidity);
+
+  });
+
+
+
+  var xlabels = [];
+  var ylabels = [];
+   
+    var json;
+    
+    var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        var theUrl = "https://home-automation-2a710-default-rtdb.firebaseio.com/timestamp.json";
+        xmlhttp.open("GET", theUrl);
+        xmlhttp.send();
+        xmlhttp.onload=function(){
+          
+
+            json = JSON.parse(xmlhttp.responseText);
+            console.log(json);
+
+
+            for(var k in json){
+              xlabels.push(json[k].x);
+              ylabels.push(json[k].y);
+            }
+             
+             
+
+
+
+var ctx = document.getElementById('myChart').getContext('2d');
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: xlabels,
+        datasets: [
+        {
+            label: 'Realtime Energy consumption',
+            data: ylabels,
+            fill: true,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    // Include a Watt 
+                    callback: function(value, index, values) {
+                        return value + 'W';
+                    }
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    // Include a Watt 
+                    callback: function(value, index, values) {
+                        return value;
+                    }
+                }
+            }]
+        }
+    }
+});
+         
+
+        }
+});
+</script>
+
+
+
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>

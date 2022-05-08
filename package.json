@@ -1,5 +1,5 @@
 {
-  "name": "home-autoamation",
+  "name": "home-automation",
   "version": "1.0.0",
   "description": "A web app for home automation project",
   "main": "server.js",
@@ -8,17 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RachitGupta008/Home-Autoamation.git"
+    "url": "git+https://github.com/Ajayjam97/Home-Automation.git"
   },
-  "author": " <Ajay Singh>",
+  "keywords": [
+    "node.js"
+  ],
+  "author": "Ajay Singh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RachitGupta008/Home-Autoamation/issues"
+    "url": "https://github.com/Ajayjam97/Home-Automation/issues"
   },
-  "homepage": "https://github.com/RachitGupta008/Home-Autoamation#readme",
+  "homepage": "https://github.com/Ajayjam97/Home-Automation#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "firebase": "^9.7.0"
   }
 }

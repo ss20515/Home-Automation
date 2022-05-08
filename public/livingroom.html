@@ -1,371 +1,328 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Home page</title>
      <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
+    <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <link rel="manifest" href="manifest.json">
      <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>  
 	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
-	<!--<script src="script.js"></script>-->
-  <script src="firebase.js"></script>
-  <script src="index.js"></script>
+
+    <script src="firebase.js"></script>
+    <script src="index.js"></script>
+    
 </head>
+
 <body>
 
+    <div id="wrapper">
 
-<div id="wrapper">
-
-<!-- Navbar Top-->
-        <div class="navbar navbar-inverse navbar-dark bg-dark navbar-fixed-top">
-            <div class="adjust-nav">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/img/ha.jpeg" width="40px" height="40px">
-                        
-
-                    </a>
-                    
-                </div>
+    <!-- Navbar Top-->
+    <div class="navbar navbar-inverse navbar-dark bg-dark navbar-fixed-top">
+        <div class="adjust-nav">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/ha.jpeg" width="40px" height="40px">
+                </a>
+                
             </div>
         </div>
-<!-- /Navabar Top-->
+    </div>
+    <!-- /Navabar Top-->
 
+    <!-- Navbar Side-->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">    
+            <ul class="nav" id="main-menu">
+             
+               <li class="userinfo">
+                    <h3 ></h3>
+                </li>
 
+               
+                <li class="active-link">
+                    <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
+                </li>
 
+                <li class="active-link">
+                    <a href="Analytics.html" ><i class="fa fa-circle-o-notch "></i>Analytics</a>
+                </li>
 
-
-
-<!-- Navbar Side-->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-                 
-
-
-                    <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
-                    </li>
-
-                     <!-- <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-bell-o "></i>Notifications </a>
-                    </li> -->
-
-                    <li class="active-link">
-                        <a href="Analytics.html" ><i class="fa fa-circle-o-notch "></i>Analytics</a>
-                    </li>
-
-                   <!--  <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-gear "></i>Settings </a>
-                    </li>
- -->
-                    
-                    <li class="active-link">
-                        <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
-                    </li>
-
-                   
-
-                                     
-                    
-                </ul>
-              </div>
-
-        </nav>
-<!-- /Navbar Side-->
-
-
-<!-- Main Content Area-->
-        <div id="page-wrapper" >
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-lg-12">
-                     <h2>Livingroom</h2>   
-                    </div>
-                </div> 
-
-
-
-     <div class="buttonbox">
-     <h1 class="Bulb"></h1>
+                <!-- <li class="active-link">
+                    <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
+                </li> -->
+                                 
+            </ul>
+          </div>
+    </nav>
+    <!-- /Navbar Side-->
   
-     <button type="button" class="buttonone btn btn-primary btn-lg">Bulb</button>
-     </div>
-            
+    <!-- Main Content Area-->
+    <div id="page-wrapper" >
+        <div id="page-inner">
+ 
 
-<div class="buttonbox">
-<div class="rgbbox">
+            <div class="row">
+                <div class="col-lg-12">
+                 <h2>Livingroom</h2>   
+                </div>
+            </div> 
 
-     
-</div>
-  
-     
-</div>
+            <div class="buttonbox">
+            <h1 class="Bulb"></h1>
+            <button type="button" class="buttonone btn btn-primary btn-lg">Bulb</button>
+            </div>
+                    
 
+            <div class="buttonbox">
+            <div class="rgbbox">            
+            </div>
+            </div>
 
-<div class="rgbselector">
-
-
-<div class="redbox"></div>
-<div class="greenbox"></div>
-<div class="bluebox"></div>
-<div class="raspberrybox"></div>
-<div class="cyanbox"></div>
-<div class="magentabox"></div>
-<div class="yellowbox"></div>
-<div class="whitebox"></div>
-
-
-
-
-<!--<button type="button" class="btn">Red</button>
-<button type="button" class="btn">Green</button>
-<button type="button" class="btn">Blue</button>
-<button type="button" class="btn">Raspberry</button>
-<button type="button" class="btn">Cyan</button>
-<button type="button" class="btn">Magenta</button>
-<button type="button" class="btn">Yellow</button>
-<button type="button" class="btn">White</button>-->
-
-</div>
+            <div class="rgbselector">
+            <div class="redbox"></div>
+            <div class="greenbox"></div>
+            <div class="bluebox"></div>
+            <div class="raspberrybox"></div>
+            <div class="cyanbox"></div>
+            <div class="magentabox"></div>
+            <div class="yellowbox"></div>
+            <div class="whitebox"></div>
+            </div>
 
 
+        </div>
+    </div>
+    <!-- /Main Content Area-->
 
 
-<script>
+    </div>
 
-  var firebase = app_fireBase;
+    <!-- Footer-->
+    <div class="footer">
+        <div class="row">
+            <div class="col-lg-12" >
+                &copy;  2019 Homeautomation| Design by: Our team
+            </div>
+        </div>
+    </div>
+    <!-- /Footer-->
 
-  $(document).ready(function(){
-    var database = firebase.database();
-    var r,g,b;
-    var gar,h,k,r1,r2;
-    
-    database.ref().on("value", function(snap){
-      r = snap.val().r;
-      g = snap.val().g;
-      b = snap.val().b;
 
-       gar = snap.val().led_g;
-      h = snap.val().led_h;
-      k = snap.val().led_k;
-      r1 = snap.val().led_r1cntrl;
-      r2 = snap.val().led_r2cntrl;
 
-      if((r==255)&&(g==0)&&(b==0)){
-        $(".rgbbox").css( "background-color", "red" );
-      } 
-      else if((r==0)&&(g==255)&&(b==0)){
-        $(".rgbbox").css( "background-color", "green" );
-      }
-      else if((r==0)&&(g==0)&&(b==255)){
-        $(".rgbbox").css( "background-color", "blue" );
-      }
-      else if((r==255)&&(g==255)&&(b==125)){
-        $(".rgbbox").css( "background-color", "#ffff7d" );
-      }
-      else if((r==0)&&(g==255)&&(b==255)){
-        $(".rgbbox").css( "background-color", "cyan" );
-      }
-      else if((r==255)&&(g==0)&&(b==255)){
-        $(".rgbbox").css( "background-color", "magenta" );
-      }
-      else if((r==255)&&(g==255)&&(b==0)){
-        $(".rgbbox").css( "background-color", "yellow" );
-      }
-      else if((r==255)&&(g==255)&&(b==255)){
-        $(".rgbbox").css( "background-color", "white" );
-      }
-    });
+    <script>
 
-    $(".redbox").click(function(){
-      var rRef = firebase.database().ref().child("r");
-      var gRef = firebase.database().ref().child("g");
-      var bRef = firebase.database().ref().child("b");
-      rRef.set(255);
-      gRef.set(0);
-      bRef.set(0);
-      $(".rgbbox").css( "background-color", "red" );
-
-        });   
-
-     $(".greenbox").click(function(){
-      var rRef = firebase.database().ref().child("r");
-      var gRef = firebase.database().ref().child("g");
-      var bRef = firebase.database().ref().child("b");
-      rRef.set(0);
-      gRef.set(255);
-      bRef.set(0);
-      $(".rgbbox").css( "background-color", "green" );
+        var firebase = app_fireBase;
       
-        });   
-
-      $(".bluebox").click(function(){
-      var rRef = firebase.database().ref().child("r");
-      var gRef = firebase.database().ref().child("g");
-      var bRef = firebase.database().ref().child("b");
-      rRef.set(0);
-      gRef.set(0);
-      bRef.set(255);
-      $(".rgbbox").css( "background-color", "blue" );
+        $(document).ready(function(){
+          var database = firebase.database();
+          var r,g,b;
+          var gar,h,k,r1,r2;
+          
+          database.ref().on("value", function(snap){
+            r = snap.val().r;
+            g = snap.val().g;
+            b = snap.val().b;
       
-        });   
-
-       $(".raspberrybox").click(function(){
-      var rRef = firebase.database().ref().child("r");
-      var gRef = firebase.database().ref().child("g");
-      var bRef = firebase.database().ref().child("b");
-      rRef.set(255);
-      gRef.set(255);
-      bRef.set(125);
-      $(".rgbbox").css( "background-color", "#ffff7d" );
+            gar = snap.val().led_g;
+            h = snap.val().led_h;
+            k = snap.val().led_k;
+            r1 = snap.val().led_r1cntrl;
+            r2 = snap.val().led_r2cntrl;
       
-        });   
-
-        $(".cyanbox").click(function(){
-      var rRef = firebase.database().ref().child("r");
-      var gRef = firebase.database().ref().child("g");
-      var bRef = firebase.database().ref().child("b");
-      rRef.set(0);
-      gRef.set(255);
-      bRef.set(255);
-      $(".rgbbox").css( "background-color", "cyan" );
+            if((r==255)&&(g==0)&&(b==0)){
+              $(".rgbbox").css( "background-color", "red" );
+            } 
+            else if((r==0)&&(g==255)&&(b==0)){
+              $(".rgbbox").css( "background-color", "green" );
+            }
+            else if((r==0)&&(g==0)&&(b==255)){
+              $(".rgbbox").css( "background-color", "blue" );
+            }
+            else if((r==255)&&(g==255)&&(b==125)){
+              $(".rgbbox").css( "background-color", "#ffff7d" );
+            }
+            else if((r==0)&&(g==255)&&(b==255)){
+              $(".rgbbox").css( "background-color", "cyan" );
+            }
+            else if((r==255)&&(g==0)&&(b==255)){
+              $(".rgbbox").css( "background-color", "magenta" );
+            }
+            else if((r==255)&&(g==255)&&(b==0)){
+              $(".rgbbox").css( "background-color", "yellow" );
+            }
+            else if((r==255)&&(g==255)&&(b==255)){
+              $(".rgbbox").css( "background-color", "white" );
+            }
+            });
       
-        });   
 
-         $(".magentabox").click(function(){
-      var rRef = firebase.database().ref().child("r");
-      var gRef = firebase.database().ref().child("g");
-      var bRef = firebase.database().ref().child("b");
-      rRef.set(255);
-      gRef.set(0);
-      bRef.set(255);
-      $(".rgbbox").css( "background-color", "magenta" );
+            $(".redbox").click(function(){
+            var rRef = firebase.database().ref().child("r");
+            var gRef = firebase.database().ref().child("g");
+            var bRef = firebase.database().ref().child("b");
+            rRef.set(255);
+            gRef.set(0);
+            bRef.set(0);
+            $(".rgbbox").css( "background-color", "red" );
+            });   
       
-        });   
-
-          $(".yellowbox").click(function(){
-      var rRef = firebase.database().ref().child("r");
-      var gRef = firebase.database().ref().child("g");
-      var bRef = firebase.database().ref().child("b");
-      rRef.set(255);
-      gRef.set(255);
-      bRef.set(0);
-      $(".rgbbox").css( "background-color", "yellow" );
+            $(".greenbox").click(function(){
+            var rRef = firebase.database().ref().child("r");
+            var gRef = firebase.database().ref().child("g");
+            var bRef = firebase.database().ref().child("b");
+            rRef.set(0);
+            gRef.set(255);
+            bRef.set(0);
+            $(".rgbbox").css( "background-color", "green" );
+            });   
       
-        });   
-
-           $(".whitebox").click(function(){
-      var rRef = firebase.database().ref().child("r");
-      var gRef = firebase.database().ref().child("g");
-      var bRef = firebase.database().ref().child("b");
-      rRef.set(255);
-      gRef.set(255);
-      bRef.set(255);
-      $(".rgbbox").css( "background-color", "white" );
+            $(".bluebox").click(function(){
+            var rRef = firebase.database().ref().child("r");
+            var gRef = firebase.database().ref().child("g");
+            var bRef = firebase.database().ref().child("b");
+            rRef.set(0);
+            gRef.set(0);
+            bRef.set(255);
+            $(".rgbbox").css( "background-color", "blue" );
+            });   
       
-        });  
+            $(".raspberrybox").click(function(){
+            var rRef = firebase.database().ref().child("r");
+            var gRef = firebase.database().ref().child("g");
+            var bRef = firebase.database().ref().child("b");
+            rRef.set(255);
+            gRef.set(255);
+            bRef.set(125);
+            $(".rgbbox").css( "background-color", "#ffff7d" );
+            });   
+      
+            $(".cyanbox").click(function(){
+            var rRef = firebase.database().ref().child("r");
+            var gRef = firebase.database().ref().child("g");
+            var bRef = firebase.database().ref().child("b");
+            rRef.set(0);
+            gRef.set(255);
+            bRef.set(255);
+            $(".rgbbox").css( "background-color", "cyan" );
+            });   
+      
+            $(".magentabox").click(function(){
+            var rRef = firebase.database().ref().child("r");
+            var gRef = firebase.database().ref().child("g");
+            var bRef = firebase.database().ref().child("b");
+            rRef.set(255);
+            gRef.set(0);
+            bRef.set(255);
+            $(".rgbbox").css( "background-color", "magenta" );
+            });   
+      
+            $(".yellowbox").click(function(){
+            var rRef = firebase.database().ref().child("r");
+            var gRef = firebase.database().ref().child("g");
+            var bRef = firebase.database().ref().child("b");
+            rRef.set(255);
+            gRef.set(255);
+            bRef.set(0);
+            $(".rgbbox").css( "background-color", "yellow" );
+            });   
+      
+            $(".whitebox").click(function(){
+            var rRef = firebase.database().ref().child("r");
+            var gRef = firebase.database().ref().child("g");
+            var bRef = firebase.database().ref().child("b");
+            rRef.set(255);
+            gRef.set(255);
+            bRef.set(255);
+            $(".rgbbox").css( "background-color", "white" );
+            });  
+      
+
+      
+          var bulb;
+          database.ref().on("value", function(snap){
+            bulb = snap.val().led_h;
+            if(bulb == 1){
+              $(".Bulb").text("Bulb is on.");
+            } else {
+              $(".Bulb").text("Bulb is off.");
+            }
+          });
+
+      
+          $(".buttonone").click(function(){
+            var led_hRef = firebase.database().ref().child("led_h");
+            if(bulb == 1)
+            {
+              led_hRef.set(0);
+              bulb = 0;
+      
+              var power = (gar*1 + h*0 + k*1 + r1*1 + r2*1);
+              var today = new Date();
+              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+              var datetime = time;
+      
+
+              var data = {
+                x: datetime,
+                y:  power,
+              }
+      
+              var xmlhttp = new XMLHttpRequest(); 
+              var theUrl = "https://home-automation-2a710-default-rtdb.firebaseio.com/timestamp.json";
+              xmlhttp.open("POST", theUrl);
+              xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+              xmlhttp.send(JSON.stringify(data));
+
+            }
+            else
+            {
+              led_hRef.set(1);
+              bulb = 1;
+      
+              var power = (gar*1 + h*1 + k*1 + r1*1 + r2*1);
+              var today = new Date();
+              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+              var datetime = time;
+
+              var data = {
+                x: datetime,
+                y:  power,
+              }
+      
+      
+              var xmlhttp = new XMLHttpRequest(); 
+              var theUrl = "https://home-automation-2a710-default-rtdb.firebaseio.com/timestamp.json";
+              xmlhttp.open("POST", theUrl);
+              xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+              xmlhttp.send(JSON.stringify(data));
+      
+            }
+          });
+        });      
+      </script>
+         
 
 
-    var bulb;
-    
-    database.ref().on("value", function(snap){
-      bulb = snap.val().led_h;
-      if(bulb == 1){
-        $(".Bulb").text("Bulb is on.");
-      } else {
-        $(".Bulb").text("Bulb is off.");
-      }
-    });
-
-    $(".buttonone").click(function(){
-      var led_hRef = firebase.database().ref().child("led_h");
-      if(bulb == 1){
-        led_hRef.set(0);
-        bulb = 0;
-
-         var power = (gar*1 + h*0 + k*1 + r1*1 + r2*1);
-
-         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var datetime = time;
-
-         // var ref = database.ref('timestamp');
-
-        var data = {
-
-          x: datetime,
-          y:  power,
-        }
-
-
-
-        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
-        xmlhttp.open("POST", theUrl);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify(data));
-
-        // ref.push(data);
-      }else {
-        led_hRef.set(1);
-        bulb = 1;
-
-         var power = (gar*1 + h*1 + k*1 + r1*1 + r2*1);
-
-         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var datetime = time;
-
-         // var ref = database.ref('timestamp');
-
-        var data = {
-
-          x: datetime,
-          y:  power,
-        }
-
-
-        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
-        xmlhttp.open("POST", theUrl);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify(data));
-
-        // ref.push(data);
-      }
-    });
-
-
-
-  });
-
-
-</script>
-     
-
-
-
-
-
-
-     
-
-
-<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
@@ -374,4 +331,5 @@
     <script src="assets/js/custom.js"></script>
 
 </body>
+
 </html>

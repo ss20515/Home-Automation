@@ -1,272 +1,195 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Home page</title>
      <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
+    <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <link rel="manifest" href="manifest.json">
      <!-- GOOGLE FONTS-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
-	<!--<script src="script.js"></script>-->
-  <script src="firebase.js"></script>
-  <script src="index.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>  
+	<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+
+    <script src="firebase.js"></script>
+    <script src="index.js"></script>
+    
 </head>
+
 <body>
 
+    <div id="wrapper">
 
-<div id="wrapper">
-
-<!-- Navbar Top-->
-        <div class="navbar navbar-inverse navbar-dark bg-dark navbar-fixed-top">
-            <div class="adjust-nav">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/img/ha.jpeg" width="40px" height="40px">
-                        
-
-                    </a>
-                    
-                </div>
+    <!-- Navbar Top-->
+    <div class="navbar navbar-inverse navbar-dark bg-dark navbar-fixed-top">
+        <div class="adjust-nav">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/ha.jpeg" width="40px" height="40px">
+                </a>
+                
             </div>
         </div>
-<!-- /Navabar Top-->
+    </div>
+    <!-- /Navabar Top-->
 
+    <!-- Navbar Side-->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">    
+            <ul class="nav" id="main-menu">
+             
+               <li class="userinfo">
+                    <h3 ></h3>
+                </li>
 
+               
+                <li class="active-link">
+                    <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
+                </li>
 
+                <li class="active-link">
+                    <a href="Analytics.html" ><i class="fa fa-circle-o-notch "></i>Analytics</a>
+                </li>
 
-
-
-<!-- Navbar Side-->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-                 
-
-
-                    <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard </a>
-                    </li>
-
-                     <!-- <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-bell-o "></i>Notifications </a>
-                    </li> -->
-
-                    <li class="active-link">
-                        <a href="Analytics.html" ><i class="fa fa-circle-o-notch "></i>Analytics</a>
-                    </li>
-
-                   <!--  <li class="active-link">
-                        <a href="index.html" ><i class="fa fa-gear "></i>Settings </a>
-                    </li>
- -->
-                    
-                    <li class="active-link">
-                        <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
-                    </li>
-
-                   
-
-                                     
-                    
-                </ul>
-              </div>
-
-        </nav>
-<!-- /Navbar Side-->
-
-
-<!-- Main Content Area-->
-        <div id="page-wrapper" >
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-lg-12">
-                     <h2>Bedroom 1</h2>   
-                    </div>
-                </div>   
-
-
-
-
-     <!--<div class="buttonbox">
-     <h1 class="Mode"></h1>
+                <!-- <li class="active-link">
+                    <a href="index.html" onclick="mainApp.logOut()" ><i class="fa fa-key "></i>Logout </a>
+                </li> -->
+                                 
+            </ul>
+          </div>
+    </nav>
+    <!-- /Navbar Side-->
   
-     <button type="button" class="buttonone btn btn-primary btn-lg">Mode</button>
-     </div>
+    <!-- Main Content Area-->
+    <div id="page-wrapper" >
+        <div id="page-inner">
+            
+            <div class="row">
+                <div class="col-lg-12">
+                 <h2>Bedroom 1</h2>   
+                </div>
+            </div>   
+
+            <div class="buttonbox">
+            <h1 class="Bulb"></h1>
+            <button type="button" class="buttonone btn btn-primary btn-lg">Bulb</button>         
+            </div>
+
+        </div>
+    </div>
+    <!-- /Main Content Area-->
 
 
-     <div class="buttonbox">
-     <h1 class="Lock"></h1>
-    
-     <button type="button" class="buttontwo btn btn-primary btn-lg">Lock</button>
-     </div>-->
+    </div>
+
+    <!-- Footer-->
+    <div class="footer">
+        <div class="row">
+            <div class="col-lg-12" >
+                &copy;  2019 Homeautomation| Design by: Our team
+            </div>
+        </div>
+    </div>
+    <!-- /Footer-->
 
 
-     <div class="buttonbox">
-     <h1 class="Bulb"></h1>
-    
-     <button type="button" class="buttonthree btn btn-primary btn-lg">Bulb</button>         
-     </div>
+    <script>
 
-
-
-
- <script>
-  var firebase = app_fireBase;
-  var firestore= app_firestore;
-
-  $(document).ready(function(){
-    var database = firebase.database();
-    var mode;
-    var lock;
-    var bulb;
-     var g,h,k,r1,r2;
-    
-    database.ref().on("value", function(snap){
-      mode = snap.val().led_r1mode;
-      lock = snap.val().intrusion_set;
-      bulb = snap.val().led_r1cntrl;
-      g = snap.val().led_g;
-      h = snap.val().led_h;
-      k = snap.val().led_k;
-      r1 = snap.val().led_r1cntrl;
-      r2 = snap.val().led_r2cntrl;
-
-      relayfour = snap.val().relayfour;
-
-
-      if(mode == 1){
-        $(".Mode").text("App mode.");
-      } else {
-        $(".Mode").text("Automatic mode.");
-      }
-      if(lock == 1){
-        $(".Lock").text("Intrusion Detection enabled.");
-      } else {
-        $(".Lock").text("Intrusion Detection disabled.");
-      }
-      if(bulb == 1){
-        $(".Bulb").text("Bulb is on.");
-      } else {
-        $(".Bulb").text("Bulb is off.");
-      }
-    });
-
-
-
-
-    $(".buttonone").click(function(){
-      var led_r1modeRef = firebase.database().ref().child("led_r1mode");
-      if(mode == 1){
-        led_r1modeRef.set(0);
-        mode = 0;
-      }else {
-        led_r1modeRef.set(1);
-        mode = 1;
-      }
-    });
-    $(".buttontwo").click(function(){
-      var intrusion_setRef = firebase.database().ref().child("intrusion_set");
-      if(lock == 1){
-        intrusion_setRef.set(0);
-        lock = 0;
-      }else{
-        intrusion_setRef.set(1);
-        lock = 1;
-      }
-    })
-     $(".buttonthree").click(function(){
-      var led_r1cntrlRef = firebase.database().ref().child("led_r1cntrl");
-
-      if(bulb == 1){
-        led_r1cntrlRef.set(0);
-        bulb = 0;
-
-      // var docRef = firestore.collection('timestamp').doc('key');
-
-      var power = (g*1 + h*1 + k*1 + r1*0 + r2*1);
-
-      var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var datetime = time;
+    firebase = app_fireBase;
       
-        var data = {
+    $(document).ready(function(){
 
-          x: datetime,
-          y:  power,
-        }
-
-        // var ref = database.ref('timestamp');
-        // ref.push(data);
-        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
-        xmlhttp.open("POST", theUrl);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify(data));
-
-       // docRef.set(data).then(function(){
-       //  console.log("status saved");
-       // }).catch(function(error){
-       //  console.log("got an error" + error);
-       // });
-
-      }else{
-        led_r1cntrlRef.set(1);
-        bulb = 1;
-
-        var power = (g*1 + h*1 + k*1 + r1*1 + r2*1);
-
-        var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var datetime = time;
+        var database = firebase.database();
+        var bulb;
+        var g,h,k,r1,r2;
+          
+        database.ref().on("value", function(snap){
         
-         // var ref = database.ref('timestamp');
+            bulb = snap.val().led_r1cntrl;
+            g = snap.val().led_g;
+            h = snap.val().led_h;
+            k = snap.val().led_k;
+            r1 = snap.val().led_r1cntrl;
+            r2 = snap.val().led_r2cntrl;
 
-        var data = {
+      
+            if(bulb == 1){
+              $(".Bulb").text("Bulb is on.");
+            } else {
+              $(".Bulb").text("Bulb is off.");
+            }
+          });
+      
+      
 
-          x: datetime,
-          y:  power,
-        }
+           $(".buttonone").click(function(){
+            var led_r1cntrlRef = firebase.database().ref().child("led_r1cntrl");
+      
+            if(bulb == 1)
+            {
+        
+            led_r1cntrlRef.set(0);
+            bulb = 0;
+            var power = (g*1 + h*1 + k*1 + r1*0 + r2*1);
+            var today = new Date();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var datetime = time;
+        
+            var data = {
+                x: datetime,
+                y:  power,
+            }
+      
+            var xmlhttp = new XMLHttpRequest();  
+            var theUrl = "https://home-automation-2a710-default-rtdb.firebaseio.com/timestamp.json";
+            xmlhttp.open("POST", theUrl);
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlhttp.send(JSON.stringify(data));      
+            }
+            else
+            {
+
+              led_r1cntrlRef.set(1);
+              bulb = 1;
+              var power = (g*1 + h*1 + k*1 + r1*1 + r2*1);
+              var today = new Date();
+              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+              var datetime = time;
+              
+              var data = {
+                x: datetime,
+                y:  power,
+              }
+      
+              var xmlhttp = new XMLHttpRequest(); 
+              var theUrl = "https://home-automation-2a710-default-rtdb.firebaseio.com/timestamp.json";
+              xmlhttp.open("POST", theUrl);
+              xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+              xmlhttp.send(JSON.stringify(data));
+      
+            }
+          }) 
+        });
+      </script>
 
 
-        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        var theUrl = "https://automator1-be03e.firebaseio.com/timestamp.json";
-        xmlhttp.open("POST", theUrl);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify(data));
 
-        // ref.push(data);
-      }
-    })
-
-
-  });
-
-   
-
-</script>
-
-   
-
-
-
-
-
-<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
@@ -275,4 +198,5 @@
     <script src="assets/js/custom.js"></script>
 
 </body>
+
 </html>

@@ -1,19 +1,22 @@
-
 var mainApp = {};
-
+var userdetials = {};
 (function(){
+
 	var firebase = app_fireBase;
-var uid = null;
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-  }
-  else{
-    // redirect to login
-    uid = null;
-    window.location.replace("login.html");
-  }
-});
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            const uid = user.uid;
+            userdetials.displayName = user.displayName;
+            window.localStorage.setItem('status', 'Welcome '+userdetials.displayName+'! Your home is secure');
+        }
+        else{
+            // redirect to login
+            uid = null;
+            window.location.replace("login.html");
+        }
+    });
 
 
    function logOut(){
