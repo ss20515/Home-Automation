@@ -1,5 +1,5 @@
 # Home-Automation
-This will be used as the site for the home automation system
+This will be used as the site for the home automation system.
 
 
 ## Introduction
